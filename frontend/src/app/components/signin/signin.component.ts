@@ -11,7 +11,10 @@ import { AuthStateService } from 'src/app/shared/auth-state/auth-state.service';
 })
 export class SigninComponent implements OnInit {
   loginForm: FormGroup;
-  errors:any = null;
+  errors: any = null;
+  isSignedIn!: boolean;
+
+
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -24,7 +27,16 @@ export class SigninComponent implements OnInit {
       password: [],
     });
   }
-  ngOnInit() {}
+
+  ngOnInit() {
+    this.authState.userAuthState.subscribe((val) => {
+      this.isSignedIn = val;
+    });
+    if (this.isSignedIn) {
+      this.router.navigate(['home']);
+    }
+  }
+
   onSubmit() {
     this.authService.signin(this.loginForm.value).subscribe(
       (result) => {
@@ -41,7 +53,7 @@ export class SigninComponent implements OnInit {
     );
   }
   // Handle response
-  responseHandler(data:any) {
+  responseHandler(data: any) {
     this.token.handleData(data.access_token);
   }
 }
