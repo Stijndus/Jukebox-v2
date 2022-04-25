@@ -10,6 +10,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
+import { LibraryComponent } from './components/library/library.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
     SignupComponent,
     UserProfileComponent,
     HomeComponent,
+    LibraryComponent,
   ],
   imports: [
     BrowserModule,
