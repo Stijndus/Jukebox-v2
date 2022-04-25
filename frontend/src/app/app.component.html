@@ -1,30 +1,14 @@
 <div
   class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
 >
-  <h5 *ngIf="!isSignedIn" class="my-0 mr-md-auto font-weight-normal">
-    Jukebox
-  </h5>
-  <h5
-    *ngIf="isSignedIn"
-    class="my-0 mr-md-auto font-weight-normal"
-    routerLink="/home"
-  >
-    Jukebox
-  </h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a *ngIf="isSignedIn" class="p-2 text-dark" routerLink="/profile"
-      >User Profile</a
-    >
-    <a *ngIf="isSignedIn" class="p-2 text-dark" routerLink="/songs"
-      >All songs</a
-    >
-    <a *ngIf="isSignedIn" class="p-2 text-dark" routerLink="/library"
-      >Library</a
-    >
-    <a *ngIf="!isSignedIn" class="p-2 text-dark" routerLink="/login">Log in</a>
-    <a *ngIf="!isSignedIn" class="p-2 text-dark" routerLink="/register"
-      >Register</a
-    >
+  <h5 *ngIf="!isSignedIn" class="my-0 mr-md-auto font-weight-normal">Jukebox</h5>
+  <h5 *ngIf="isSignedIn" class="my-0 mr-md-auto font-weight-normal" routerLink="/home">Jukebox</h5>
+  <nav class="nav">
+    <a *ngIf="isSignedIn"  class="p-2 nav-item nav-link text-dark" routerLink="/songs">Songs</a>
+    <a *ngIf="isSignedIn"  class="p-2 nav-item nav-link text-dark" routerLink="/library">Library</a>
+    <a *ngIf="isSignedIn"  class="p-2 nav-item nav-link text-dark" routerLink="/profile">Profile</a>
+    <a *ngIf="!isSignedIn" class="p-2 nav-item nav-link text-dark" routerLink="/login">Log in</a>
+    <a *ngIf="!isSignedIn" class="p-2 nav-item nav-link text-dark" routerLink="/register">Register</a>
   </nav>
   <div class="d-flex flex-column flex-md-row justify-content-end mw-auto">
     <button
