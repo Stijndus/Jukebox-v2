@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { LibraryComponent } from './components/library/library.component';
+import { SongsComponent } from './components/songs/songs.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LibraryComponent } from './components/library/library.component';
     UserProfileComponent,
     HomeComponent,
     LibraryComponent,
+    SongsComponent,
   ],
   imports: [
     BrowserModule,
