@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthStateService } from './shared/auth-state/auth-state.service';
@@ -19,11 +20,14 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    if(!this.isSignedIn){
+      this.router.navigate(['login']);
+    }
     this.auth.userAuthState.subscribe((val) => {
       this.isSignedIn = val;
     });
   }
-  
+
   // Signout
   signOut() {
     this.auth.setAuthState(false);
