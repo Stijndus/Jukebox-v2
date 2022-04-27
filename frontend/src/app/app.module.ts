@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LibraryComponent } from './components/library/library.component';
 import { SongsComponent } from './components/songs/songs.component';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
+import { PlaylistFormComponent } from './components/playlists/form/playlist-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PlaylistsComponent } from './components/playlists/playlists.component';
     LibraryComponent,
     SongsComponent,
     PlaylistsComponent,
+    PlaylistFormComponent,
   ],
   imports: [
     BrowserModule,
