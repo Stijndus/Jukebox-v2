@@ -12,6 +12,7 @@ import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { LibraryComponent } from './components/library/library.component';
 import { SongsComponent } from './components/songs/songs.component';
+import { PlaylistsComponent } from './components/playlists/playlists.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SongsComponent } from './components/songs/songs.component';
     HomeComponent,
     LibraryComponent,
     SongsComponent,
+    PlaylistsComponent,
   ],
   imports: [
     BrowserModule,
