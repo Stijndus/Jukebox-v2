@@ -14,6 +14,9 @@ import { LibraryComponent } from './components/library/library.component';
 import { SongsComponent } from './components/songs/songs.component';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
 import { PlaylistFormComponent } from './components/playlists/form/playlist-form.component';
+import { SongsGridComponent } from './components/songs/songs-grid/songs-grid.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { GridApi } from 'ag-grid-community';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { PlaylistFormComponent } from './components/playlists/form/playlist-form
     SongsComponent,
     PlaylistsComponent,
     PlaylistFormComponent,
+    SongsGridComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,7 @@ import { PlaylistFormComponent } from './components/playlists/form/playlist-form
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    AgGridModule
   ],
   providers: [
     {
@@ -40,6 +45,7 @@ import { PlaylistFormComponent } from './components/playlists/form/playlist-form
       useClass: AuthInterceptor,
       multi: true,
     },
+    GridApi
   ],
   bootstrap: [AppComponent],
 })

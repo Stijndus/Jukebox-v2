@@ -14,7 +14,7 @@ export class ApiService {
   }
 
   getPlaylist(id: number){
-    return this.http.get<any[]>(`${this.URL}/playlists/${id}`);
+    return this.http.get<any[]>(`${this.URL}/playlist/${id}`);
   }
 
   addPlaylist(data: any){
