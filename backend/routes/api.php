@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PlaylistsApiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,11 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);    
 });
+
+// Playlists Api Routes
+Route::get('/playlists/{user}', [PlaylistsApiController::class, 'index']);
+Route::get('/playlists/public', [PlaylistsApiController::class, 'public']);
+Route::get('/playlist/{playlist}', [PlaylistsApiController::class, 'read']);
+Route::post('/playlists', [PlaylistsApiController::class, 'store']);
+Route::put('/playlists/{playlist}', [PlaylistsApiController::class, 'update']);
+Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
