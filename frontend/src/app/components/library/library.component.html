@@ -1,105 +1,32 @@
 <h3 class="h3 mb-3 font-weight-normal text-center">Your library</h3>
 
-<h5 class="h5 mb-3 text-muted text-left">Playlists <button data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button></h5>
+<h5 class="h5 mb-3 text-muted text-left">
+  Playlists
+  <button data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+</h5>
 <div class="d-flex flex-wrap">
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+  <ng-container *ngFor="let playlist of playlists | async">
+    <div class="card m-1" style="width: 18rem">
+      <img
+        class="card-img-top"
+        src="assets/images/{{ playlist.image }}"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ playlist.title }}</h5>
+        <p class="card-text">
+          {{ playlist.description }}
+        </p>
+        <a [routerLink]="['/playlist', playlist.id]" class="btn btn-primary"
+          >Go to playlist</a
+        >
+      </div>
     </div>
-  </div>
-
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a [routerLink]="['/playlist', 1]" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card m-1" style="width: 18rem">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+  </ng-container>
 </div>
 
-<div class="modal fade" id="myModal"  data-toggle="modal" data-target=".myModal">
+<div class="modal fade" id="myModal" data-toggle="modal" data-target=".myModal">
   <app-playlist-form></app-playlist-form>
-  
 </div>

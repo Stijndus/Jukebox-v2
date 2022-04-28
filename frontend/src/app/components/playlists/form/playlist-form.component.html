@@ -12,7 +12,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <form>
+      <form [formGroup]="form">
         <div class="form-group">
           <label for="playlistName">Title</label>
           <input
@@ -21,6 +21,7 @@
             id="playlistName"
             aria-describedby="emailHelp"
             placeholder="Enter title"
+            formControlName="title"
           />
         </div>
         <div class="form-group">
@@ -30,10 +31,11 @@
             class="form-control"
             id="playlistDesc"
             placeholder="Description"
+            formControlName="description"
           />
         </div>
         <div class="modal-footer">
-          <button type="submit" (click)="submitForm()"class="btn btn-primary">Submit</button>
+          <button type="submit" (click)="submitForm()" class="btn btn-primary" data-dismiss="#myModal">Submit</button>
         </div>
       </form>
     </div>
