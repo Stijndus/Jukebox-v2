@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 // User interface
 export class User {
-  id?: number;
+  id?: any;
   name: any;
   email: any;
 }
