@@ -19,6 +19,32 @@ export class LibraryComponent implements OnInit {
     });
   }
 
+  public refreshData(): void {
+      this.authService.profileUser().subscribe((data: any) => {
+        this.playlists = this.apiSrvc.getPlaylistsFromUser(data.id);
+      });
+  }
+
+  public pinPlaylist(playlist: any){
+    let id = playlist.id
+    let pinned = 1
+    if (playlist.pinned === 1){
+      pinned = 0
+    }
+    this.apiSrvc.pinPlaylist(id, pinned).subscribe(()=>{
+      this.refreshData();
+    })
+  }
+
+  public deletePlaylist(id: number){
+    console.log(id)
+    this.apiSrvc.deletePlaylist(id).subscribe(() => {
+      this.authService.profileUser().subscribe((data: any) => {
+        this.playlists = this.apiSrvc.getPlaylistsFromUser(data.id);
+      });
+    })
+  }
+
   ngOnInit(): void {
   }
 

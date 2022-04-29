@@ -1,47 +1,55 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
   private readonly URL = 'http://127.0.0.1:8000/api'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getPlaylistsFromUser(uid: number){
-    return this.http.get<any[]>(`${this.URL}/playlists/${uid}`);
+  getPlaylistsFromUser(uid: number) {
+    return this.http.get<any[]>(`${this.URL}/playlists/${uid}`)
   }
 
-  getPlaylist(id: number){
-    return this.http.get<any[]>(`${this.URL}/playlist/${id}`);
+  getPlaylist(id: number) {
+    return this.http.get<any[]>(`${this.URL}/playlist/${id}`)
   }
 
-  addPlaylist(data: any){
-    return this.http.post(`${this.URL}/playlists`, data);
+  addPlaylist(data: any) {
+    return this.http.post(`${this.URL}/playlists`, data)
   }
 
-  getSongs(){
-    return this.http.get<any[]>(`${this.URL}/songs`);
+  deletePlaylist(id: number) {
+    return this.http.delete<any>(`${this.URL}/playlists/${id}`)
   }
 
-  getSong(id: number){
-    return this.http.get<any[]>(`${this.URL}/songs/${id}`);
+  pinPlaylist(id: number, bool: number) {
+    return this.http.put<any>(`${this.URL}/playlist_pin/${id}`, { pinned: bool })
   }
 
-  addSong(data: any){
-    return this.http.post(`${this.URL}/songs`, data);
+  getSongs() {
+    return this.http.get<any[]>(`${this.URL}/songs`)
   }
 
-  getSongsFromPlaylist(id:number){
-    return this.http.get<any[]>(`${this.URL}/songs_playlist/${id}`);
+  getSong(id: number) {
+    return this.http.get<any[]>(`${this.URL}/songs/${id}`)
   }
 
-  deleteSongFromPlaylist(id:number){
-    return this.http.delete<any>(`${this.URL}/songs_playlist/${id}`);
+  addSong(data: any) {
+    return this.http.post(`${this.URL}/songs`, data)
   }
 
-  addSongToPlaylsit(data:any){
-    return this.http.post(`${this.URL}/songs_playlist`, data);
+  getSongsFromPlaylist(id: number) {
+    return this.http.get<any[]>(`${this.URL}/songs_playlist/${id}`)
+  }
+
+  deleteSongFromPlaylist(id: number) {
+    return this.http.delete<any>(`${this.URL}/songs_playlist/${id}`)
+  }
+
+  addSongToPlaylsit(data: any) {
+    return this.http.post(`${this.URL}/songs_playlist`, data)
   }
 }
