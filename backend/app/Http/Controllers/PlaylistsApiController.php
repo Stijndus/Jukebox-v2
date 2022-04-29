@@ -33,6 +33,14 @@ class PlaylistsApiController extends Controller
         ]);
     }
 
+    public function pin(Playlist $playlist)
+    {
+        return $playlist->update([
+            'pinned' => request('pinned')
+        ]);
+    }
+
+
     public function destroy(Playlist $playlist)
     {
         $succes = $playlist->delete();

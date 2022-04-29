@@ -37,5 +37,6 @@ Route::get('/playlists/{user}', [PlaylistsApiController::class, 'index']);
 Route::get('/playlists/public', [PlaylistsApiController::class, 'public']);
 Route::get('/playlist/{playlist}', [PlaylistsApiController::class, 'read']);
 Route::post('/playlists', [PlaylistsApiController::class, 'store']);
+Route::put('/playlist_pin/{playlist}', [PlaylistsApiController::class, 'pin']);
 Route::put('/playlists/{playlist}', [PlaylistsApiController::class, 'update']);
 Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
