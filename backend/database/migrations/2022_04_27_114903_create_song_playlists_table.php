@@ -13,10 +13,11 @@ class CreateSongPlaylistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('song_playlists', function (Blueprint $table) {
+        Schema::create('playlist_song', function (Blueprint $table) {
             $table->id();
-            $table->integer('song_id');
-            $table->integer('playlist_id');
+            $table->foreignId('playlist_id')->references('id')->on('playlists');
+            $table->foreignId('song_id')->references('id')->on('songs');
+            $table->timestamps();
         });
     }
 

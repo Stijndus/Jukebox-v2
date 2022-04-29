@@ -16,4 +16,7 @@ class Playlist extends Model
         'pinned',
         'public',
     ];
+    public function playlists(){
+        return $this->belongsToMany(Playlist::class);
+    }
 }
