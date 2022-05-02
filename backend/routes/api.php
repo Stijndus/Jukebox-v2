@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PlaylistsApiController;
-
+use App\Http\Controllers\SongsApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +38,8 @@ Route::get('/playlists/public', [PlaylistsApiController::class, 'public']);
 Route::get('/playlist/{playlist}', [PlaylistsApiController::class, 'read']);
 Route::post('/playlists', [PlaylistsApiController::class, 'store']);
 Route::put('/playlist_pin/{playlist}', [PlaylistsApiController::class, 'pin']);
+Route::get('/playlist_song/{playlist}', [PlaylistsApiController::class, 'songs']);
 Route::put('/playlists/{playlist}', [PlaylistsApiController::class, 'update']);
 Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
+
+Route::get('/song_artist/{song}', [SongsApiController::class, 'artist']);

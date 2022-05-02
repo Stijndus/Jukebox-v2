@@ -40,6 +40,14 @@ class PlaylistsApiController extends Controller
         ]);
     }
 
+    public function songs(Playlist $playlist)
+    {
+        $songs = $playlist->songs;
+        foreach($songs as $song){
+            $song['artist'] = $song->artist;
+        }
+        return json_encode($songs);
+    }
 
     public function destroy(Playlist $playlist)
     {

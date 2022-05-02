@@ -16,16 +16,16 @@ export class SongsGridComponent {
 
   constructor() {
     this.columnDefs = [
-      { field: 'make' },
-      { field: 'model' },
-      { field: 'price' },
+      { field: 'id' },
+      { field: 'title' },
+      { field: 'artist.name'},
     ];
   }
 
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
+    console.log(this.rowData)
     this.gridApi.sizeColumnsToFit();
   }
 }

@@ -1,10 +1,7 @@
-<p>playlists works!</p>
-<app-songs-grid
-  [rowData]="
-    [
-      {  make: 'Toyota', model: 'Celica', price: 35000 },
-      {  make: 'Ford', model: 'Mondeo', price: 32000 },
-      {  make: 'Porsche', model: 'Boxster', price: 72000 }
-    ]
-  "
-></app-songs-grid>
+<h3 class="h3 mb-3 font-weight-normal text-center">{{playlist?.title}}</h3>
+<section class="m-1">
+  <img class="img-thumbnail rounded float-left m-1" src="assets/images/{{ playlist?.image }}" alt="{{ playlist?.image }}" />
+  <p class="d-inline text-justify m-1">{{playlist?.description}}</p>
+</section>
+
+<app-songs-grid [rowData]="songs"></app-songs-grid>
