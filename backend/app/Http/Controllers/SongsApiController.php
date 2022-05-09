@@ -9,7 +9,11 @@ class SongsApiController extends Controller
 {
     public function index()
     {
-        return json_encode(Song::select('*')->get());
+        $songs = Song::select('*')->get();
+        foreach($songs as $song){
+            $song['artist'] = $song->artist;
+        }
+        return json_encode($songs);
     }
 
     public function store()

@@ -17,6 +17,7 @@ import { PlaylistFormComponent } from './components/playlists/form/playlist-form
 import { SongsGridComponent } from './components/songs/songs-grid/songs-grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { GridApi } from 'ag-grid-community';
+import { SongFormComponent } from './components/songs/song-form/song-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { GridApi } from 'ag-grid-community';
     PlaylistsComponent,
     PlaylistFormComponent,
     SongsGridComponent,
+    SongFormComponent,
   ],
   imports: [
     BrowserModule,

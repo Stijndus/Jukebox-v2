@@ -43,3 +43,8 @@ Route::put('/playlists/{playlist}', [PlaylistsApiController::class, 'update']);
 Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
 
 Route::get('/song_artist/{song}', [SongsApiController::class, 'artist']);
+
+Route::get('/songs', [SongsApiController::class, 'index']);
+
+
+

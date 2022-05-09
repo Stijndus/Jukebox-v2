@@ -19,6 +19,7 @@ export class SongsGridComponent {
       { field: 'id' },
       { field: 'title' },
       { field: 'artist.name'},
+      { field: 'duration'}
     ];
   }
 
