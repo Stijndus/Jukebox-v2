@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PlaylistsApiController;
 use App\Http\Controllers\SongsApiController;
+use App\Http\Controllers\ArtistsApiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +44,18 @@ Route::get('/playlist_song/{playlist}', [PlaylistsApiController::class, 'songs']
 Route::put('/playlists/{playlist}', [PlaylistsApiController::class, 'update']);
 Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
 
-Route::get('/song_artist/{song}', [SongsApiController::class, 'artist']);
 
+// Songs Api Routes
 Route::get('/songs', [SongsApiController::class, 'index']);
+Route::post('/songs', [SongsApiController::class, 'store']);
+Route::put('/songs/{song}', [SongsApiController::class, 'update']);
+Route::delete('/songs/{song}',  [SongsApiController::class, 'destroy']);
+
+// Artists Api Routes
+Route::get('/artists', [ArtistsApiController::class, 'index']);
+Route::post('/artists', [ArtistsApiController::class, 'store']);
+Route::put('/artists/{artist}', [ArtistsApiController::class, 'update']);
+Route::delete('/artists/{artist}',  [ArtistsApiController::class, 'destroy']);
 
 
 

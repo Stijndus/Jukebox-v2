@@ -21,9 +21,8 @@ class SongsApiController extends Controller
         
         return Song::create([
             'title' => request('title'),
-            'description' => request('description'),
-            'image' => request('image'),
-            'user' => request('user_id'),
+            'artist_id' => request('artist'),
+            'duration' => request('duration'),
 
         ]);
     }
@@ -37,13 +36,6 @@ class SongsApiController extends Controller
         ]);
     }
 
-
-
-    public function artist(Song $song)
-    {
-        return json_encode($song->artist);
-    }
-
     public function destroy(Song $song)
     {
         $succes = $song->delete();
@@ -52,6 +44,7 @@ class SongsApiController extends Controller
 
     public function read(Song $song)
     {
+        $song['artist'] = $song->artist;
         return json_encode($song);
     }
 }

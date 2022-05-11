@@ -38,6 +38,9 @@ export class ApiService {
   getSong(id: number) {
     return this.http.get<any[]>(`${this.URL}/songs/${id}`);
   }
+  deleteSong(id: number) {
+    return this.http.delete<any[]>(`${this.URL}/songs/${id}`);
+  }
 
   addSong(data: any) {
     return this.http.post(`${this.URL}/songs`, data);
@@ -57,5 +60,9 @@ export class ApiService {
 
   addSongToPlaylsit(data: any) {
     return this.http.post(`${this.URL}/songs_playlist`, data);
+  }
+
+  getArtists() {
+    return this.http.get<any[]>(`${this.URL}/artists`);
   }
 }

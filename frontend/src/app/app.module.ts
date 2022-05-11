@@ -39,7 +39,7 @@ import { SongFormComponent } from './components/songs/song-form/song-form.compon
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AgGridModule
+    AgGridModule,
   ],
   providers: [
     {

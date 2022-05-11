@@ -9,6 +9,12 @@ class Song extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'duration',
+        'artist_id',
+    ];
+
     public function playlists(){
         return $this->belongsToMany(Playlist::class);
     }

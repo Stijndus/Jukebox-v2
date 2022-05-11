@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ColDef, ColumnApi, GridApi, GridReadyEvent } from 'ag-grid-community';
+import { ApiService } from 'src/app/shared/api/api.service';
 
 @Component({
   selector: 'app-songs-grid',
@@ -14,9 +15,9 @@ export class SongsGridComponent {
 
   public columnDefs: ColDef[];
 
-  constructor() {
+  constructor(private apiSrvc: ApiService) {
     this.columnDefs = [
-      { field: 'id' },
+      { field: 'id', width:  50},
       { field: 'title' },
       { field: 'artist.name'},
       { field: 'duration'}
