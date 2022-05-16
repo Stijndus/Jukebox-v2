@@ -29,8 +29,11 @@ export class SongFormComponent implements OnInit {
       duration: [''],
       artist: [],
     });
+    
   }
 
+
+  
   submitForm() {
     var formData: any = new FormData();
     formData.append('title', this.form.get('title')?.value);

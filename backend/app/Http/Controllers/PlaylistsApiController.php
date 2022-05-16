@@ -14,7 +14,6 @@ class PlaylistsApiController extends Controller
 
     public function store()
     {
-        
         return Playlist::create([
             'title' => request('title'),
             'description' => request('description'),
@@ -54,6 +53,8 @@ class PlaylistsApiController extends Controller
         $succes = $playlist->delete();
         return json_encode($succes);
     }
+
+
 
     public function read(Playlist $playlist)
     {

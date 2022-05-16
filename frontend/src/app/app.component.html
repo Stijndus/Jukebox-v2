@@ -5,6 +5,7 @@
   <h5 *ngIf="isSignedIn" class="my-0 mr-md-auto font-weight-normal" routerLink="/home">Jukebox</h5>
   <nav class="nav">
     <a *ngIf="isSignedIn"  class="p-2 nav-item nav-link text-dark" routerLink="/songs">Songs</a>
+    <a *ngIf="isSignedIn"  class="p-2 nav-item nav-link text-dark" routerLink="/artists">Artists</a>
     <a *ngIf="isSignedIn"  class="p-2 nav-item nav-link text-dark" routerLink="/library">Library</a>
     <a *ngIf="isSignedIn"  class="p-2 nav-item nav-link text-dark" routerLink="/profile">Profile</a>
     <a *ngIf="!isSignedIn" class="p-2 nav-item nav-link text-dark" routerLink="/login">Log in</a>
