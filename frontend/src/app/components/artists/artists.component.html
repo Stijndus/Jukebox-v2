@@ -1,1 +1,32 @@
-<p>artists works!</p>
+<h3 class="h3 mb-3 font-weight-normal text-center">
+  All Artists
+  <button data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+</h3>
+
+<section>
+  <div class="d-flex flex-wrap">
+    <ng-container *ngFor="let artist of artists | async">
+      <div class="card m-1" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="assets/images/{{ artist.image }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ artist.name }}</h5>
+          <p class="card-text">
+            {{ artist.description }}
+          </p>
+          <a [routerLink]="['/artist', artist.id]" class="btn btn-primary"
+            >Go to artist</a
+          >
+          <button class="btn btn-outline-danger" (click)="(artist.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>

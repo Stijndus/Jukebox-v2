@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artists.component.scss']
 })
 export class ArtistsComponent implements OnInit {
+  public artists: any
 
   constructor() { }
 

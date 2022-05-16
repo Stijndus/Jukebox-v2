@@ -19,6 +19,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { GridApi } from 'ag-grid-community';
 import { SongFormComponent } from './components/songs/song-form/song-form.component';
 import { ArtistsComponent } from './components/artists/artists.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ArtistsComponent } from './components/artists/artists.component';
     ReactiveFormsModule,
     FormsModule,
     AgGridModule,
+    NgbModule,
   ],
   providers: [
     {
