@@ -16,9 +16,8 @@ class ArtistsApiController extends Controller
     {
         
         return Artist::create([
-            'title' => request('title'),
-            'artist' => request('artist'),
-            'duration' => request('duration'),
+            'name' => request('name'),
+            'description' => request('description'),
 
         ]);
     }
@@ -26,9 +25,8 @@ class ArtistsApiController extends Controller
     public function update(Artist $artist)
     {
         return $artist->update([
-            'title' => request('title'),
-            'artist' => request('artist'),
-            'duration' => request('duration'),
+            'name' => request('name'),
+            'description' => request('description'),
         ]);
     }
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PlaylistsApiController;
 use App\Http\Controllers\SongsApiController;
 use App\Http\Controllers\ArtistsApiController;
+use App\Http\Controllers\AlbumsApiController;
+
 
 
 /*
@@ -57,5 +59,10 @@ Route::post('/artists', [ArtistsApiController::class, 'store']);
 Route::put('/artists/{artist}', [ArtistsApiController::class, 'update']);
 Route::delete('/artists/{artist}',  [ArtistsApiController::class, 'destroy']);
 
+// Albums Api Routes
+Route::get('/albums', [AlbumsApiController::class, 'index']);
+Route::post('/albums', [AlbumsApiController::class, 'store']);
+Route::put('/albums/{album}', [AlbumsApiController::class, 'update']);
+Route::delete('/albums/{album}',  [AlbumsApiController::class, 'destroy']);
 
 

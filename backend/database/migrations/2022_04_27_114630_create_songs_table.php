@@ -17,7 +17,8 @@ class CreateSongsTable extends Migration
             $table->id();
             $table->string('title');
             $table->foreignId('artist_id')->references('id')->on('artists');
-            // $table->foreignId('album_id')->references('id')->on('albums');
+            $table->foreignId('album_id')->references('id')->on('albums');
+            $table->foreignId('genre_id')->references('id')->on('genres');
             $table->string('duration');
             $table->timestamps();
         });
