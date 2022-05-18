@@ -13,6 +13,8 @@ export class SongFormComponent implements OnInit {
   public artists: any;
 
   form: FormGroup;
+  albums: any;
+  genres: any;
   constructor(
     public fb: FormBuilder,
     private authService: AuthService,
@@ -23,11 +25,15 @@ export class SongFormComponent implements OnInit {
     });
 
     this.artists = this.apiSrvc.getArtists();
+    this.albums = this.apiSrvc.getAlbums();
+    this.genres = this.apiSrvc.getGenres();
 
     this.form = this.fb.group({
       title: [''],
       duration: [''],
       artist: [],
+      album: [],
+      genre: [],
     });
     
   }
@@ -39,6 +45,8 @@ export class SongFormComponent implements OnInit {
     formData.append('title', this.form.get('title')?.value);
     formData.append('duration', this.form.get('duration')?.value);
     formData.append('artist', this.form.get('artist')?.value);
+    formData.append('album', this.form.get('album')?.value);
+    formData.append('genre', this.form.get('genre')?.value);
     this.apiSrvc.addSong(formData).subscribe(
       (response: any) => console.log(response),
       (error: any) => console.log(error)

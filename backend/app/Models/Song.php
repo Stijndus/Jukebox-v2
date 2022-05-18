@@ -12,7 +12,9 @@ class Song extends Model
     protected $fillable = [
         'title',
         'duration',
+        'genre_id',
         'artist_id',
+        'album_id',
     ];
 
     public function playlists(){

@@ -7,6 +7,8 @@ use App\Http\Controllers\PlaylistsApiController;
 use App\Http\Controllers\SongsApiController;
 use App\Http\Controllers\ArtistsApiController;
 use App\Http\Controllers\AlbumsApiController;
+use App\Http\Controllers\GenresApiController;
+
 
 
 
@@ -50,6 +52,7 @@ Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy
 // Songs Api Routes
 Route::get('/songs', [SongsApiController::class, 'index']);
 Route::post('/songs', [SongsApiController::class, 'store']);
+Route::post('/song_playlist/{playlist}', [SongsApiController::class, 'addToList']);
 Route::put('/songs/{song}', [SongsApiController::class, 'update']);
 Route::delete('/songs/{song}',  [SongsApiController::class, 'destroy']);
 
@@ -65,4 +68,8 @@ Route::post('/albums', [AlbumsApiController::class, 'store']);
 Route::put('/albums/{album}', [AlbumsApiController::class, 'update']);
 Route::delete('/albums/{album}',  [AlbumsApiController::class, 'destroy']);
 
-
+// genre Api Routes
+Route::get('/genres', [GenresApiController::class, 'index']);
+Route::post('/genres', [GenresApiController::class, 'store']);
+Route::put('/genres/{genre}', [GenresApiController::class, 'update']);
+Route::delete('/genres/{genre}',  [GenresApiController::class, 'destroy']);

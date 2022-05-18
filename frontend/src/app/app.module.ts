@@ -20,6 +20,7 @@ import { GridApi } from 'ag-grid-community';
 import { SongFormComponent } from './components/songs/song-form/song-form.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlbumsComponent } from './components/albums/albums.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SongsGridComponent,
     SongFormComponent,
     ArtistsComponent,
+    AlbumsComponent,
   ],
   imports: [
     BrowserModule,

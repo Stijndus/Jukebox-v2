@@ -46,6 +46,21 @@ export class ApiService {
     return this.http.post(`${this.URL}/songs`, data);
   }
 
+  getArtists() {
+    return this.http.get<any[]>(`${this.URL}/artists`);
+  }
+
+  getArtist(id: number) {
+    return this.http.get<any[]>(`${this.URL}/artists/${id}`);
+  }
+  deleteArtist(id: number) {
+    return this.http.delete<any[]>(`${this.URL}/artists/${id}`);
+  }
+
+  addArtist(data: any) {
+    return this.http.post(`${this.URL}/artists`, data);
+  }
+
   getArtistFromSong(id: number) {
     return this.http.get<any>(`${this.URL}/song_artist/${id}`);
   }
@@ -62,7 +77,33 @@ export class ApiService {
     return this.http.post(`${this.URL}/songs_playlist`, data);
   }
 
-  getArtists() {
-    return this.http.get<any[]>(`${this.URL}/artists`);
+  getAlbums() {
+    return this.http.get<any[]>(`${this.URL}/albums`);
+  }
+
+  getAlbum(id: number) {
+    return this.http.get<any[]>(`${this.URL}/albums/${id}`);
+  }
+  deleteAlbum(id: number) {
+    return this.http.delete<any[]>(`${this.URL}/albums/${id}`);
+  }
+
+  addAlbum(data: any) {
+    return this.http.post(`${this.URL}/albums`, data);
+  }
+
+  getGenres() {
+    return this.http.get<any[]>(`${this.URL}/genres`);
+  }
+
+  getGenre(id: number) {
+    return this.http.get<any[]>(`${this.URL}/genres/${id}`);
+  }
+  deleteGenre(id: number) {
+    return this.http.delete<any[]>(`${this.URL}/genres/${id}`);
+  }
+
+  addGenre(data: any) {
+    return this.http.post(`${this.URL}/genres`, data);
   }
 }

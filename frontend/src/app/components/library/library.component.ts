@@ -37,13 +37,14 @@ export class LibraryComponent implements OnInit {
   }
 
   public deletePlaylist(id: number){
-    console.log(id)
     this.apiSrvc.deletePlaylist(id).subscribe(() => {
       this.authService.profileUser().subscribe((data: any) => {
         this.playlists = this.apiSrvc.getPlaylistsFromUser(data.id);
       });
     })
   }
+
+  
 
   ngOnInit(): void {
   }

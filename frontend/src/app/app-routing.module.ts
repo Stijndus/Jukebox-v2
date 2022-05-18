@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AlbumsComponent } from './components/albums/albums.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { HomeComponent } from './components/home/home.component';
 import { LibraryComponent } from './components/library/library.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'library', component: LibraryComponent  , canActivateChild: [AuthGuard]},
   { path: 'songs', component: SongsComponent , canActivateChild: [AuthGuard]},
   { path: 'artists', component: ArtistsComponent , canActivateChild: [AuthGuard]},
+  { path: 'albums', component: AlbumsComponent , canActivateChild: [AuthGuard]},
   { path: 'playlist/:id', component: PlaylistsComponent  , canActivateChild: [AuthGuard]},
 ];
 @NgModule({
