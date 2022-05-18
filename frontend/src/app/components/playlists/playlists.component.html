@@ -6,4 +6,33 @@
 
 <app-songs-grid [rowData]="songs"></app-songs-grid>
 
-<button class="m-2 btn btn-primary"><i class="fa-solid fa-plus"></i> Add Song</button>
+<button data-bs-toggle="modal" data-bs-target="#AddSongModal"class="m-2 btn btn-primary"><i class="fa-solid fa-plus"></i> Add Song</button>
+
+
+<div class="modal fade" id="AddSongModal" data-toggle="modal" data-target=".AddSongModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add song to playlist</h5>
+        <button type="button" class="close btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="form-group">
+            <select class="form-select" id="select_box" formControlName="song">
+              <ng-container *ngFor="let artist of allSongs | async">
+                <option value="{{ artist.id }}">{{ artist.title }} - {{ artist.artist.name }}</option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" (click)="submitAddSongForm()" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

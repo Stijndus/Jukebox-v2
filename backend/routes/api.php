@@ -47,12 +47,13 @@ Route::put('/playlist_pin/{playlist}', [PlaylistsApiController::class, 'pin']);
 Route::get('/playlist_song/{playlist}', [PlaylistsApiController::class, 'songs']);
 Route::put('/playlists/{playlist}', [PlaylistsApiController::class, 'update']);
 Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
+Route::post('/song_playlist/{playlist}', [PlaylistsApiController::class, 'addToList']);
+
 
 
 // Songs Api Routes
 Route::get('/songs', [SongsApiController::class, 'index']);
 Route::post('/songs', [SongsApiController::class, 'store']);
-Route::post('/song_playlist/{playlist}', [SongsApiController::class, 'addToList']);
 Route::put('/songs/{song}', [SongsApiController::class, 'update']);
 Route::delete('/songs/{song}',  [SongsApiController::class, 'destroy']);
 

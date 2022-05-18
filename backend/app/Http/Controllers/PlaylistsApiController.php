@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\Song;
 use Illuminate\Http\Request;
 
 class PlaylistsApiController extends Controller
@@ -21,6 +22,11 @@ class PlaylistsApiController extends Controller
             'user' => request('user_id'),
 
         ]);
+    }
+    public function addToList(Playlist $playlist)
+    {
+        $song = Song::find(request('song_id'));
+        return $playlist->songs()->attach($song);
     }
 
     public function update(Playlist $playlist)

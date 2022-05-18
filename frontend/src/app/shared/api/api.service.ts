@@ -35,6 +35,10 @@ export class ApiService {
     return this.http.get<any[]>(`${this.URL}/songs`);
   }
 
+  addSongToPlaylist(playlist: number, data: any) {
+    return this.http.post(`${this.URL}/song_playlist/${playlist}`, data);
+  }
+
   getSong(id: number) {
     return this.http.get<any[]>(`${this.URL}/songs/${id}`);
   }
@@ -72,11 +76,7 @@ export class ApiService {
   deleteSongFromPlaylist(id: number) {
     return this.http.delete<any>(`${this.URL}/songs_playlist/${id}`);
   }
-
-  addSongToPlaylsit(data: any) {
-    return this.http.post(`${this.URL}/songs_playlist`, data);
-  }
-
+  
   getAlbums() {
     return this.http.get<any[]>(`${this.URL}/albums`);
   }
