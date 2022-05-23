@@ -17,10 +17,9 @@ export class SongsGridComponent {
 
   constructor(private apiSrvc: ApiService) {
     this.columnDefs = [
-      { field: 'id', width:  50},
       { field: 'title' },
-      { field: 'artist.name'},
-      { field: 'duration'}
+      { field: 'artist'},
+      { field: 'genre.name', headerName: 'Genre'}
     ];
   }
 

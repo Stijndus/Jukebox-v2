@@ -40,13 +40,11 @@ Route::group([
 
 // Playlists Api Routes
 Route::get('/playlists/{user}', [PlaylistsApiController::class, 'index']);
-Route::get('/playlists/public', [PlaylistsApiController::class, 'public']);
 Route::get('/playlist/{playlist}', [PlaylistsApiController::class, 'read']);
 Route::post('/playlists', [PlaylistsApiController::class, 'store']);
-Route::put('/playlist_pin/{playlist}', [PlaylistsApiController::class, 'pin']);
-Route::get('/playlist_song/{playlist}', [PlaylistsApiController::class, 'songs']);
-Route::put('/playlists/{playlist}', [PlaylistsApiController::class, 'update']);
+Route::post('/playlists/{playlist}_method=PUT', [PlaylistsApiController::class, 'update']);
 Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
+Route::get('/playlist_song/{playlist}', [PlaylistsApiController::class, 'songs']);
 Route::post('/song_playlist/{playlist}', [PlaylistsApiController::class, 'addToList']);
 
 
@@ -56,18 +54,6 @@ Route::get('/songs', [SongsApiController::class, 'index']);
 Route::post('/songs', [SongsApiController::class, 'store']);
 Route::put('/songs/{song}', [SongsApiController::class, 'update']);
 Route::delete('/songs/{song}',  [SongsApiController::class, 'destroy']);
-
-// Artists Api Routes
-Route::get('/artists', [ArtistsApiController::class, 'index']);
-Route::post('/artists', [ArtistsApiController::class, 'store']);
-Route::put('/artists/{artist}', [ArtistsApiController::class, 'update']);
-Route::delete('/artists/{artist}',  [ArtistsApiController::class, 'destroy']);
-
-// Albums Api Routes
-Route::get('/albums', [AlbumsApiController::class, 'index']);
-Route::post('/albums', [AlbumsApiController::class, 'store']);
-Route::put('/albums/{album}', [AlbumsApiController::class, 'update']);
-Route::delete('/albums/{album}',  [AlbumsApiController::class, 'destroy']);
 
 // genre Api Routes
 Route::get('/genres', [GenresApiController::class, 'index']);

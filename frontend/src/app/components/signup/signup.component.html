@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
       <h3 class="h3 mb-3 font-weight-normal text-center">Register User</h3>
       <!-- Errors -->
       <div *ngIf="errors?.name" class="alert alert-danger mt-3">

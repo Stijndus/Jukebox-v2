@@ -19,8 +19,6 @@ class CreatePlaylistsTable extends Migration
             $table->string('description');
             $table->string('image');
             $table->integer('user');
-            $table->boolean('pinned')->default(0);
-            $table->boolean('public')->default(0);
             $table->timestamps();
         });
     }

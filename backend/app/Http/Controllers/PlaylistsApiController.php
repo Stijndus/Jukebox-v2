@@ -38,24 +38,18 @@ class PlaylistsApiController extends Controller
         ]);
     }
 
-    public function pin(Playlist $playlist)
-    {
-        return $playlist->update([
-            'pinned' => request('pinned')
-        ]);
-    }
-
     public function songs(Playlist $playlist)
     {
         $songs = $playlist->songs;
         foreach($songs as $song){
-            $song['artist'] = $song->artist;
+            $song['genre'] = $song->genre;
         }
         return json_encode($songs);
     }
 
     public function destroy(Playlist $playlist)
     {
+        $playlist->songs()->detach();
         $succes = $playlist->delete();
         return json_encode($succes);
     }

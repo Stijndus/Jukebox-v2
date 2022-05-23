@@ -12,8 +12,7 @@ class SongsApiController extends Controller
     {
         $songs = Song::select('*')->get();
         foreach($songs as $song){
-            $song['artist'] = $song->artist;
-            $song['album'] = $song->album;
+            $song['album'] = $song->genre;
         }
         return json_encode($songs);
     }
@@ -29,10 +28,8 @@ class SongsApiController extends Controller
         
         return Song::create([
             'title' => request('title'),
-            'artist_id' => request('artist'),
+            'artist' => request('artist'),
             'genre_id' => request('genre'),
-            'album_id' => request('album'),
-            'duration' => request('duration'),
         ]);
     }
 
@@ -40,10 +37,8 @@ class SongsApiController extends Controller
     {
         return $song->update([
             'title' => request('title'),
-            'artist_id' => request('artist'),
-            'album_id' => request('album'),
+            'artist' => request('artist'),
             'genre_id' => request('genre'),
-            'duration' => request('duration'),
         ]);
     }
 
@@ -55,7 +50,7 @@ class SongsApiController extends Controller
 
     public function read(Song $song)
     {
-        $song['artist'] = $song->artist;
+        $song['genre'] = $song->genre;
         return json_encode($song);
     }
 }

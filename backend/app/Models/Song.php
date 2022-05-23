@@ -11,25 +11,15 @@ class Song extends Model
 
     protected $fillable = [
         'title',
-        'duration',
         'genre_id',
-        'artist_id',
-        'album_id',
+        'artist',
     ];
 
     public function playlists(){
         return $this->belongsToMany(Playlist::class);
     }
 
-    public function artist(){
-        return $this->belongsTo(Artist::class);
-    }
-
     public function genre(){
         return $this->belongsTo(Genre::class);
-    }
-
-    public function album(){
-        return $this->belongsTo(Album::class);
     }
 }
