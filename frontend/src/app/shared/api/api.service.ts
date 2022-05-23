@@ -61,10 +61,14 @@ export class ApiService {
   }
 
   getGenre(id: number) {
-    return this.http.get<any[]>(`${this.URL}/genres/${id}`);
+    return this.http.get<any[]>(`${this.URL}/genre/${id}`);
   }
   deleteGenre(id: number) {
     return this.http.delete<any[]>(`${this.URL}/genres/${id}`);
+  }
+
+  editGenre(data: any, id: number) {
+    return this.http.post(`${this.URL}/genres/${id}_method=PUT`, data);
   }
 
   addGenre(data: any) {

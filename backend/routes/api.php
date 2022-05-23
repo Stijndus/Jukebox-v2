@@ -57,6 +57,7 @@ Route::delete('/songs/{song}',  [SongsApiController::class, 'destroy']);
 
 // genre Api Routes
 Route::get('/genres', [GenresApiController::class, 'index']);
+Route::get('/genre/{genre}', [GenresApiController::class, 'read']);
 Route::post('/genres', [GenresApiController::class, 'store']);
-Route::put('/genres/{genre}', [GenresApiController::class, 'update']);
+Route::post('/genres/{genre}_method=PUT', [GenresApiController::class, 'update']);
 Route::delete('/genres/{genre}',  [GenresApiController::class, 'destroy']);
