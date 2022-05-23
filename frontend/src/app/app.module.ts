@@ -17,6 +17,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { GridApi } from 'ag-grid-community';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GenresComponent } from './components/genres/genres.component';
+import { BtnCellRenderer } from './shared/button-cell-renderer/button-cell-renderer.component';
+import { SongsViewComponent } from './components/songs/songs-view/songs-view.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { GenresComponent } from './components/genres/genres.component';
     SongsComponent,
     PlaylistsComponent,
     SongsGridComponent,
-    GenresComponent
+    GenresComponent,
+    BtnCellRenderer,
+    SongsViewComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { GenresComponent } from './components/genres/genres.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AgGridModule,
+    AgGridModule.withComponents([BtnCellRenderer]),
     NgbModule,
   ],
   providers: [

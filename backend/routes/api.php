@@ -51,8 +51,9 @@ Route::post('/song_playlist/{playlist}', [PlaylistsApiController::class, 'addToL
 
 // Songs Api Routes
 Route::get('/songs', [SongsApiController::class, 'index']);
+Route::get('/song/{song}', [SongsApiController::class, 'read']);
 Route::post('/songs', [SongsApiController::class, 'store']);
-Route::put('/songs/{song}', [SongsApiController::class, 'update']);
+Route::post('/songs/{song}_method=PUT', [SongsApiController::class, 'update']);
 Route::delete('/songs/{song}',  [SongsApiController::class, 'destroy']);
 
 // genre Api Routes

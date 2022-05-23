@@ -38,12 +38,15 @@ export class ApiService {
   }
 
   getSong(id: number) {
-    return this.http.get<any[]>(`${this.URL}/songs/${id}`);
+    return this.http.get<any>(`${this.URL}/song/${id}`);
   }
   deleteSong(id: number) {
     return this.http.delete<any[]>(`${this.URL}/songs/${id}`);
   }
 
+  editSong(data: any, id: number) {
+    return this.http.post(`${this.URL}/songs/${id}_method=PUT`, data);
+  }
   addSong(data: any) {
     return this.http.post(`${this.URL}/songs`, data);
   }
