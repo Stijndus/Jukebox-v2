@@ -10,6 +10,12 @@
   </h4>
   <div class="col-md-12 text-center">
     <button
+      class="btn m-1 btn-outline-success"
+      (click)="queueSrvc.addSongToQueue(song?.id)"
+    >
+      <i class="fas fa-plus"></i>
+    </button>
+    <button
       class="btn m-1 btn-outline-primary"
       data-bs-toggle="modal"
       data-bs-target="#editModal"

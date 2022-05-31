@@ -77,4 +77,8 @@ export class ApiService {
   addGenre(data: any) {
     return this.http.post(`${this.URL}/genres`, data);
   }
+
+  getQueueSongs(data: any) {
+    return this.http.post(`${this.URL}/queue`, data);
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from 'src/app/shared/api/api.service';
 import { AuthService } from 'src/app/shared/auth/auth.service';
+import { QueueService } from 'src/app/shared/queue/queue.service';
 import { User } from '../user-profile/user-profile.component';
 
 @Component({
@@ -13,10 +14,10 @@ export class HomeComponent implements OnInit {
   public UserProfile: User;
 
   form: FormGroup;
-  public queue: any[];
+  public queue: any;
   public playlists: any;
 
-  constructor(public fb: FormBuilder, private apiSrvc: ApiService, private authService: AuthService) {
+  constructor(public fb: FormBuilder, private apiSrvc: ApiService, private authService: AuthService, public QueueSrvc: QueueService) {
     this.authService.profileUser().subscribe((data: any) => {
       this.UserProfile = data;
     });
@@ -28,9 +29,16 @@ export class HomeComponent implements OnInit {
       user_id: [],
     });
 
+    this.queue = QueueSrvc.getSongsFromQueue();
+
     this.authService.profileUser().subscribe((data: any) => {
       this.playlists = this.apiSrvc.getPlaylistsFromUser(data.id);
     });
+  }
+
+  public deleteFromQueue(index: any){
+    this.QueueSrvc.deleteFromQueue(index);
+    this.queue = this.QueueSrvc.getSongsFromQueue();
   }
 
   public refreshData(): void {

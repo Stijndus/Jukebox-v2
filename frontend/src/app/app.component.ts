@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
 
   // Signout
   signOut() {
+    sessionStorage.clear();
     this.auth.setAuthState(false);
     this.token.removeToken();
     this.router.navigate(['login']);

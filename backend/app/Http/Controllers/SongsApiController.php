@@ -23,6 +23,18 @@ class SongsApiController extends Controller
         return $song->playlists()->attach($playlist);
     }
 
+    public function queue()
+    {
+        $queue = request("queue");
+        $songs = [];
+        foreach($queue as $song){
+            $song = Song::find($song);
+            array_push($songs, $song);
+        }
+
+        return json_encode($songs);
+    }
+
     public function store()
     {
         

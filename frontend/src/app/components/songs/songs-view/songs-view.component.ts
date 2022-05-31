@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/api/api.service';
+import { QueueService } from 'src/app/shared/queue/queue.service';
 
 @Component({
   selector: 'app-songs-view',
@@ -20,7 +21,8 @@ export class SongsViewComponent implements OnInit {
     public fb: FormBuilder,
     private route: ActivatedRoute,
     private apiSrvc: ApiService,
-    private router: Router
+    private router: Router,
+    public queueSrvc: QueueService
   ) {
     this.route.params.subscribe((params) => (this.id = params.id));
 
