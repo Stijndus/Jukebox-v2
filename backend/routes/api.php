@@ -46,6 +46,7 @@ Route::post('/playlists/{playlist}_method=PUT', [PlaylistsApiController::class, 
 Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy']);
 Route::get('/playlist_song/{playlist}', [PlaylistsApiController::class, 'songs']);
 Route::post('/song_playlist/{playlist}', [PlaylistsApiController::class, 'addToList']);
+Route::post('/queue_add', [PlaylistsApiController::class, 'queue']);
 
 
 

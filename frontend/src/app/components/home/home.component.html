@@ -3,11 +3,11 @@
 <section>
   <h5 class="h5 mb-3 text-muted text-left">
     Queue
-    <button data-bs-toggle="modal" data-bs-target="#myModal" class="btn m-1 btn-primary">
+    <button data-bs-toggle="modal" data-bs-target="#queueModal" class="btn m-1 btn-primary">
       <i class="fa-solid fa-plus"></i>
     </button>
-    <button data-bs-toggle="modal" data-bs-target="#myModal" class="btn m-1 btn-danger">
-      Clear
+    <button class="btn m-1 btn-primary">
+      Add as playlist
     </button>
   </h5>
   <div class="d-flex flex-wrap">
@@ -31,7 +31,7 @@
 <section>
   <h5 class="h5 mb-3 text-muted text-left">
     Playlists
-    <button data-bs-toggle="modal" data-bs-target="#myModal" class="btn m-1 btn-primary">
+    <button data-bs-toggle="modal" data-bs-target="#playlistModal" class="btn m-1 btn-primary">
       <i class="fa-solid fa-plus"></i>
     </button>
   </h5>
@@ -54,7 +54,7 @@
   </div>
 </section>
 
-<div class="modal fade" id="myModal" data-toggle="modal" data-target=".myModal">
+<div class="modal fade" id="playlistModal" data-toggle="modal" data-target=".playlistModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -77,6 +77,33 @@
           </div>
           <div class="modal-footer">
             <button type="submit" (click)="submitForm()" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="queueModal" data-toggle="modal" data-target=".queueModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add to queue</h5>
+        <button type="button" class="close btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formQueue">
+          <select class="form-select" id="select_box" formControlName="song">
+            <ng-container *ngFor="let song of allSongs | async">
+              <option value="{{ song.id }}">
+                {{ song.title }} - {{ song.artist }}
+              </option>
+            </ng-container>
+          </select>
+          <div class="modal-footer">
+            <button type="submit" (click)="submitQueueForm()" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
           </div>
         </form>
       </div>

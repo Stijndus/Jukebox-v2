@@ -22,7 +22,6 @@ export class SongsViewComponent implements OnInit {
     private route: ActivatedRoute,
     private apiSrvc: ApiService,
     private router: Router,
-    public queueSrvc: QueueService
   ) {
     this.route.params.subscribe((params) => (this.id = params.id));
 

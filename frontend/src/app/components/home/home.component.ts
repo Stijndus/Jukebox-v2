@@ -14,8 +14,11 @@ export class HomeComponent implements OnInit {
   public UserProfile: User;
 
   form: FormGroup;
+  formQueue: FormGroup;
+
   public queue: any;
   public playlists: any;
+  allSongs: any;
 
   constructor(public fb: FormBuilder, private apiSrvc: ApiService, private authService: AuthService, public QueueSrvc: QueueService) {
     this.authService.profileUser().subscribe((data: any) => {
@@ -29,7 +32,12 @@ export class HomeComponent implements OnInit {
       user_id: [],
     });
 
+    this.formQueue = this.fb.group({
+      song: [],
+    });
+
     this.queue = QueueSrvc.getSongsFromQueue();
+    this.allSongs = this.apiSrvc.getSongs();
 
     this.authService.profileUser().subscribe((data: any) => {
       this.playlists = this.apiSrvc.getPlaylistsFromUser(data.id);
@@ -66,6 +74,11 @@ export class HomeComponent implements OnInit {
       (error: any) => console.log(error)
     )
     this.refreshData();
+  }
+
+  submitQueueForm() {
+    this.QueueSrvc.addSongToQueue(this.formQueue.get('song')?.value);
+    this.queue = this.QueueSrvc.getSongsFromQueue();
   }
 
   ngOnInit(): void {}

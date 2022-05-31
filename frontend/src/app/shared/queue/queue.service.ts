@@ -31,4 +31,9 @@ export class QueueService {
     queue.splice(index, 1);
     sessionStorage.setItem('queue', JSON.stringify(queue))
   }
+
+  addAsPlaylist(){
+    let queueStr: any = sessionStorage.getItem('queue')
+    let queue = JSON.parse(queueStr);
+  }
 }

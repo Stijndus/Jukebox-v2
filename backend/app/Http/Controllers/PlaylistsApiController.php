@@ -23,10 +23,26 @@ class PlaylistsApiController extends Controller
 
         ]);
     }
+
     public function addToList(Playlist $playlist)
     {
         $song = Song::find(request('song_id'));
         return $playlist->songs()->attach($song);
+    }
+
+    public function queue()
+    {
+        $playlist = Playlist::create([
+            'title' => request('title'),
+            'description' => request('description'),
+            'image' => request('image'),
+            'user' => request('user_id'),
+        ]);
+        $songs = json_decode(request('songs'));
+        // return $songs;
+        foreach($songs as $song){
+           $playlist->songs()->attach(Song::find($song));
+        }
     }
 
     public function update(Playlist $playlist)
