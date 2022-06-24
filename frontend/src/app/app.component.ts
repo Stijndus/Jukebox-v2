@@ -20,11 +20,9 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.auth.setAuthState(false);
     this.auth.userAuthState.subscribe((val) => {
       this.isSignedIn = val;
     });
-    console.log(this.isSignedIn); 
     if(!this.isSignedIn){
       this.router.navigate(['login']);
     }

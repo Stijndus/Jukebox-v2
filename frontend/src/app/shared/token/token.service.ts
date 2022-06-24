@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SessionManagerService } from '../session/session-manager.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,14 +10,14 @@ export class TokenService {
     register: 'http://127.0.0.1:8000/api/auth/register',
   };
 
-  constructor() {}
+  constructor(private sessionManager: SessionManagerService) {}
 
   handleData(token: any) {
-    localStorage.setItem('auth_token', token);
+    this.sessionManager.sessionSetKey('auth_token', token);
   }
 
   getToken() {
-    return localStorage.getItem('auth_token');
+    return this.sessionManager.sessionFromKey('auth_token');
   }
 
   isValidToken() {
@@ -43,6 +44,6 @@ export class TokenService {
   }
 
   removeToken() {
-    localStorage.removeItem('auth_token');
+    sessionStorage.removeItem('auth_token');
   }
 }
