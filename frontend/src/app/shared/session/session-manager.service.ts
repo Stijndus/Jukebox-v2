@@ -7,11 +7,19 @@ export class SessionManagerService {
 
   constructor() { }
 
-  sessionFromKey(key: string){
-    return JSON.parse(sessionStorage.getItem(key) || '{}');
+  sessionFromKey(key: string) {
+    return sessionStorage.getItem(key);
   }
 
-  sessionSetKey(key: string, value: any){
-    return sessionStorage.setItem(key, JSON.stringify(value));
+  sessionSetKey(key: string, value: any) {
+    return sessionStorage.setItem(key, value);
+  }
+
+  localFromKey(key: string) {
+    return localStorage.getItem(key)
+  }
+
+  localSetKey(key: string, value: any) {
+    return localStorage.setItem(key, value);
   }
 }
