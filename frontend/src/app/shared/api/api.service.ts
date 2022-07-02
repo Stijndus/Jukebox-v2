@@ -64,7 +64,7 @@ export class ApiService {
   }
 
   getGenre(id: number) {
-    return this.http.get<any[]>(`${this.URL}/genre/${id}`);
+    return this.http.get<any>(`${this.URL}/genre/${id}`);
   }
   deleteGenre(id: number) {
     return this.http.delete<any[]>(`${this.URL}/genres/${id}`);

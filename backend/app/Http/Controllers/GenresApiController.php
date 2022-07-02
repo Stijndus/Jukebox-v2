@@ -35,6 +35,11 @@ class GenresApiController extends Controller
 
     public function read(Genre $genre)
     {
+        $songs = $genre->songs;
+        foreach($songs as $song){
+            $song['genre'] = $song->genre;
+        }
+        $genre['songs'] = $songs;
         return json_encode($genre);
     }
 }

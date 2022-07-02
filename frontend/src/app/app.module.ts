@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GenresComponent } from './components/genres/genres.component';
 import { BtnCellRenderer } from './shared/button-cell-renderer/button-cell-renderer.component';
 import { SongsViewComponent } from './components/songs/songs-view/songs-view.component';
+import { GenreComponent } from './components/genre/genre.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SongsViewComponent } from './components/songs/songs-view/songs-view.com
     SongsGridComponent,
     GenresComponent,
     BtnCellRenderer,
-    SongsViewComponent
+    SongsViewComponent,
+    GenreComponent
   ],
   imports: [
     BrowserModule,

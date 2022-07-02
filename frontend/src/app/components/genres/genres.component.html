@@ -15,7 +15,7 @@
   <ng-container *ngFor="let genres of genres">
     <div class="card m-1" style="width: 18rem">
       <div class="card-body">
-        <h5 class="card-title">{{ genres.name }}</h5>
+        <h5 class="card-title" [routerLink]="'/genre/' + genres.id">{{ genres.name }}</h5>
         <button class="btn btn-primary" (click)="getGenre(genres.id)" data-bs-toggle="modal"
         data-bs-target="#editModal">
           <i class="fas fa-pencil"></i>

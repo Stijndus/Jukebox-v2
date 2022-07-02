@@ -3,6 +3,9 @@
   <h4 class="h4 mb-3 font-weight-normal text-center text-muted">
     {{ playlist?.description }}
   </h4>
+  <h4 class="h4 mb-3 font-weight-normal text-center text-muted">
+    {{ playlist?.duration }}
+  </h4>
 
   <div *ngIf="errors" class="alert alert-danger mt-3">
     {{ errors?.error.message }}
@@ -19,7 +22,7 @@
 </header>
 
 <section>
-  <app-songs-grid [rowData]="songs"></app-songs-grid>
+  <app-songs-grid [rowData]="playlist.songs"></app-songs-grid>
 
   <button data-bs-toggle="modal" data-bs-target="#AddSongModal" class="m-2 btn btn-primary">
     <i class="fa-solid fa-plus"></i> Add Song

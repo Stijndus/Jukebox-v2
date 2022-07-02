@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GenreComponent } from './components/genre/genre.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { HomeComponent } from './components/home/home.component';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'songs', component: SongsComponent , canActivate: [AuthGuard]},
   { path: 'song/:id', component: SongsViewComponent  , canActivate: [AuthGuard]},
   { path: 'genres', component: GenresComponent , canActivate: [AuthGuard]},
+  { path: 'genre/:id', component: GenreComponent , canActivate: [AuthGuard]},
   { path: 'playlist/:id', component: PlaylistsComponent  , canActivate: [AuthGuard]},
 ];
 @NgModule({
