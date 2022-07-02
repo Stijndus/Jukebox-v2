@@ -8,7 +8,7 @@ export class SessionManagerService {
   constructor() { }
 
   sessionFromKey(key: string){
-    return JSON.parse(sessionStorage.getItem(key) || '{}');
+    return JSON.parse(sessionStorage.getItem(key)!);
   }
 
   sessionSetKey(key: string, value: any){

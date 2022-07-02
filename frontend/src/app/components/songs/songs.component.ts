@@ -25,6 +25,7 @@ export class SongsComponent implements OnInit {
       title: [''],
       artist: [''],
       genre: [],
+      duration: [],
     });
   }
 
@@ -33,6 +34,7 @@ export class SongsComponent implements OnInit {
     formData.append('title', this.form.get('title')?.value);
     formData.append('artist', this.form.get('artist')?.value);
     formData.append('genre', this.form.get('genre')?.value);
+    formData.append('duration', this.form.get('duration')?.value);
     this.apiSrvc.addSong(formData).subscribe(
       (response: any) => console.log(response),
       (error: any) => console.log(error)

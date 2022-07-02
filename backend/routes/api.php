@@ -35,7 +35,7 @@ Route::group([
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
 
 // Playlists Api Routes
@@ -47,6 +47,7 @@ Route::delete('/playlists/{playlist}',  [PlaylistsApiController::class, 'destroy
 Route::get('/playlist_song/{playlist}', [PlaylistsApiController::class, 'songs']);
 Route::post('/song_playlist/{playlist}', [PlaylistsApiController::class, 'addToList']);
 Route::post('/queue_add', [PlaylistsApiController::class, 'queue']);
+Route::delete('/song_playlist/{playlist}/{id}',  [PlaylistsApiController::class, 'destroyRow']);
 
 
 

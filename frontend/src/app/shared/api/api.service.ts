@@ -55,10 +55,10 @@ export class ApiService {
     return this.http.get<any[]>(`${this.URL}/playlist_song/${id}`);
   }
 
-  deleteSongFromPlaylist(id: number) {
-    return this.http.delete<any>(`${this.URL}/songs_playlist/${id}`);
+  deleteSongFromPlaylist(id: number, song: number) {
+    return this.http.delete<any>(`${this.URL}/song_playlist/${id}/${song}`);
   }
-  
+
   getGenres() {
     return this.http.get<any[]>(`${this.URL}/genres`);
   }

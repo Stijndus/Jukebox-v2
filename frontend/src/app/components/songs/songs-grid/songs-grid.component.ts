@@ -16,13 +16,14 @@ export class SongsGridComponent {
 
   private gridApi: GridApi;
   private gridColumnApi: ColumnApi;
+  private apiSrvc: ApiService;
 
   public columnDefs: ColDef[];
   frameworkComponents: { btnCellRenderer: any };
   closeResult: string;
-  
 
-  constructor(private apiSrvc: ApiService, private router: Router) {
+
+  constructor( private router: Router) {
     this.columnDefs = [
       {
         field: 'id',
@@ -36,10 +37,11 @@ export class SongsGridComponent {
           icon: 'eye',
         },
       },
-
       { field: 'title' },
       { field: 'artist' },
       { field: 'genre.name', headerName: 'Genre' },
+      { field: 'duration'}
+
     ];
 
     this.frameworkComponents = {

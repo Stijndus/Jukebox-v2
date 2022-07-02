@@ -13,6 +13,7 @@ class Song extends Model
         'title',
         'genre_id',
         'artist',
+        'duration'
     ];
 
     public function playlists(){

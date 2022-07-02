@@ -18,6 +18,7 @@ class CreateSongsTable extends Migration
             $table->string('title');
             $table->string('artist');
             $table->foreignId('genre_id')->references('id')->on('genres')->onDelete('cascade');
+            $table->time('duration');
             $table->timestamps();
         });
     }

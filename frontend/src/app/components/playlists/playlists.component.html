@@ -3,19 +3,16 @@
   <h4 class="h4 mb-3 font-weight-normal text-center text-muted">
     {{ playlist?.description }}
   </h4>
+
+  <div *ngIf="errors" class="alert alert-danger mt-3">
+    {{ errors?.error.message }}
+  </div>
   <div class="col-md-12 text-center">
-    <button
-      class="btn m-1 btn-outline-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#editModal"
-    >
+    <button class="btn m-1 btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editModal">
       <i class="fas fa-pencil"></i>
     </button>
 
-    <button
-      class="btn m-1 btn-outline-danger"
-      (click)="deletePlaylist(playlist.id)"
-    >
+    <button class="btn m-1 btn-outline-danger" (click)="deletePlaylist(playlist.id)">
       <i class="fas fa-trash-alt"></i>
     </button>
   </div>
@@ -24,31 +21,52 @@
 <section>
   <app-songs-grid [rowData]="songs"></app-songs-grid>
 
-  <button
-    data-bs-toggle="modal"
-    data-bs-target="#AddSongModal"
-    class="m-2 btn btn-primary"
-  >
+  <button data-bs-toggle="modal" data-bs-target="#AddSongModal" class="m-2 btn btn-primary">
     <i class="fa-solid fa-plus"></i> Add Song
+  </button>
+  <button data-bs-toggle="modal" data-bs-target="#DeleteSongModal" class="m-2 btn btn-danger">
+    <i class="fa-solid fa-trash"></i> Delete Song
   </button>
 </section>
 
-<div
-  class="modal fade"
-  id="AddSongModal"
-  data-toggle="modal"
-  data-target=".AddSongModal"
->
+<div class="modal fade" id="DeleteSongModal" data-toggle="modal" data-target=".DeleteSongModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete song from playlist</h5>
+        <button type="button" class="close btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formD" autocomplete="off">
+          <div class="form-group">
+            <select class="form-select" id="select_box" formControlName="song">
+              <ng-container *ngFor="let song of songs ">
+                <option value="{{ song.id }}">
+                  {{ song.title }} - {{ song.artist }}
+                </option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" (click)="submitDeleteSongForm()" class="btn btn-danger" data-bs-dismiss="modal">
+              Delete
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="AddSongModal" data-toggle="modal" data-target=".AddSongModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add song to playlist</h5>
-        <button
-          type="button"
-          class="close btn btn-outline-danger"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">
           <i class="fa-solid fa-times"></i>
         </button>
       </div>
@@ -65,12 +83,7 @@
           </div>
 
           <div class="modal-footer">
-            <button
-              type="submit"
-              (click)="submitAddSongForm()"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-            >
+            <button type="submit" (click)="submitAddSongForm()" class="btn btn-primary" data-bs-dismiss="modal">
               Submit
             </button>
           </div>
@@ -80,23 +93,13 @@
   </div>
 </div>
 
-<div
-  class="modal fade"
-  id="editModal"
-  data-toggle="modal"
-  data-target=".editModal"
->
+<div class="modal fade" id="editModal" data-toggle="modal" data-target=".editModal">
   <div class="modal-dialog" role="document">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Edit playlist</h5>
-          <button
-            type="button"
-            class="close btn btn-outline-danger"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          >
+          <button type="button" class="close btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-times"></i>
           </button>
         </div>
@@ -104,32 +107,16 @@
           <form [formGroup]="formEdit">
             <div class="form-group">
               <label for="playlistName">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="playlistName"
-                aria-describedby="emailHelp"
-                value="{{playlist?.title}}"
-                formControlName="title"
-              />
+              <input type="text" class="form-control" id="playlistName" aria-describedby="emailHelp"
+                value="{{playlist?.title}}" formControlName="title" />
             </div>
             <div class="form-group">
               <label for="playlistDesc">Description</label>
-              <input
-                type="text"
-                class="form-control"
-                id="playlistDesc"
-                value="{{playlist?.description}}"
-                formControlName="description"
-              />
+              <input type="text" class="form-control" id="playlistDesc" value="{{playlist?.description}}"
+                formControlName="description" />
             </div>
             <div class="modal-footer">
-              <button
-                type="submit"
-                (click)="submitForm()"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
+              <button type="submit" (click)="submitForm()" class="btn btn-primary" data-bs-dismiss="modal">
                 Submit
               </button>
             </div>

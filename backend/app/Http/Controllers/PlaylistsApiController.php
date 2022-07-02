@@ -10,7 +10,11 @@ class PlaylistsApiController extends Controller
 {
     public function index($id)
     {
-        return json_encode(Playlist::select('*')->where('user', '=', $id)->get());
+        return json_encode(
+            Playlist::select('*')
+                ->where('user', '=', $id)
+                ->get()
+        );
     }
 
     public function store()
@@ -20,14 +24,24 @@ class PlaylistsApiController extends Controller
             'description' => request('description'),
             'image' => request('image'),
             'user' => request('user_id'),
-
         ]);
     }
 
     public function addToList(Playlist $playlist)
     {
-        $song = Song::find(request('song_id'));
-        return $playlist->songs()->attach($song);
+        $result = false;
+        $songs = $playlist->songs;
+        foreach ($songs as $song) {
+            if ($song['id'] == request('song_id')) {
+                $result = true;
+            }
+        }
+        if ($result) {
+            abort(404, 'already exists');
+        } else {
+            $song = Song::find(request('song_id'));
+            return $playlist->songs()->attach($song);
+        }
     }
 
     public function queue()
@@ -40,8 +54,8 @@ class PlaylistsApiController extends Controller
         ]);
         $songs = json_decode(request('songs'));
         // return $songs;
-        foreach($songs as $song){
-           $playlist->songs()->attach(Song::find($song));
+        foreach ($songs as $song) {
+            $playlist->songs()->attach(Song::find($song));
         }
     }
 
@@ -57,7 +71,7 @@ class PlaylistsApiController extends Controller
     public function songs(Playlist $playlist)
     {
         $songs = $playlist->songs;
-        foreach($songs as $song){
+        foreach ($songs as $song) {
             $song['genre'] = $song->genre;
         }
         return json_encode($songs);
@@ -70,11 +84,16 @@ class PlaylistsApiController extends Controller
         return json_encode($succes);
     }
 
+    public function destroyRow(Playlist $playlist, $id)
+    {
+        $song = Song::where('id', $id)->first();
+        $succes = $playlist->songs()->detach($song);
 
+        return json_encode($succes);
+    }
 
     public function read(Playlist $playlist)
     {
         return json_encode($playlist);
     }
 }
-

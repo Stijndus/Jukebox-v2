@@ -25,7 +25,7 @@
           </div>
 
           <div class="form-group">
-            <label for="songName">Title</label>
+            <label for="songName">Artist</label>
             <input type="artist" class="form-control" id="songName" aria-describedby="emailHelp" placeholder="Enter artist"
               formControlName="artist" />
           </div>
@@ -37,6 +37,12 @@
                 <option value="{{ genre.id }}">{{ genre.name }}</option>
               </ng-container>
             </select>
+          </div>
+
+          <div class="form-group">
+            <label for="songName">Duration</label>
+            <input type="time" class="form-control" id="songName" aria-describedby="emailHelp" placeholder="Enter artist"
+              formControlName="duration" />
           </div>
           <div class="modal-footer">
             <button type="submit" (click)="submitForm()" class="btn btn-primary" data-bs-dismiss="modal">

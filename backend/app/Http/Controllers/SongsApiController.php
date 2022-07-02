@@ -37,11 +37,13 @@ class SongsApiController extends Controller
 
     public function store()
     {
-        
+
         return Song::create([
             'title' => request('title'),
             'artist' => request('artist'),
             'genre_id' => request('genre'),
+            'duration' => request('duration'),
+
         ]);
     }
 
@@ -51,6 +53,7 @@ class SongsApiController extends Controller
             'title' => request('title'),
             'artist' => request('artist'),
             'genre_id' => request('genre'),
+            'duration' => request('duration'),
         ]);
     }
 
