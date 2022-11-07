@@ -25,14 +25,14 @@ export class QueueService {
     return this.ApiSrvc.getQueueSongs({ queue: JSON.parse(queue) })
   }
 
+  getSongs(){
+    return this.sessionManager.sessionFromKey('queue');
+  }
+
   deleteFromQueue(index: any) {
     let queueStr: any = this.sessionManager.sessionFromKey('queue')
     let queue = JSON.parse(queueStr);
     queue.splice(index, 1);
     this.sessionManager.sessionSetKey('queue', JSON.stringify(queue))
-  }
-
-  addAsPlaylist(){
-    let queueStr: any = this.sessionManager.sessionFromKey('queue')
   }
 }

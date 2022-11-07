@@ -81,4 +81,8 @@ export class ApiService {
   getQueueSongs(data: any) {
     return this.http.post(`${this.URL}/queue`, data);
   }
+
+  addQueueAsPlaylist(data: any) {
+    return this.http.post(`${this.URL}/queue_add`, data)
+  }
 }

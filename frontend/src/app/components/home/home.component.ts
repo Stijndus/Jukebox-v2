@@ -81,5 +81,21 @@ export class HomeComponent implements OnInit {
     this.queue = this.QueueSrvc.getSongsFromQueue();
   }
 
+  addQueueAsPlaylist() {
+    var formData: any = new FormData();
+    console.log(this.QueueSrvc.getSongs())
+    let queue: any = this.QueueSrvc.getSongs();
+    formData.append("title", "New playlist");
+    formData.append("description", "New Description");
+    formData.append("image", "placeholder.png");
+    formData.append("user_id", this.UserProfile.id);
+    formData.append("songs", queue);
+    this.apiSrvc.addQueueAsPlaylist(formData).subscribe(
+      (response: any) => console.log(response),
+      (error: any) => console.log(error)
+    )
+    this.refreshData();
+  }
+
   ngOnInit(): void {}
 }
