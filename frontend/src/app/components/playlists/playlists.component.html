@@ -45,7 +45,7 @@
         <form [formGroup]="formD" autocomplete="off">
           <div class="form-group">
             <select class="form-select" id="select_box" formControlName="song">
-              <ng-container *ngFor="let song of songs ">
+              <ng-container *ngFor="let song of playlist.songs ">
                 <option value="{{ song.id }}">
                   {{ song.title }} - {{ song.artist }}
                 </option>

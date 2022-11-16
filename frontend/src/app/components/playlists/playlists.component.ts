@@ -75,9 +75,9 @@ export class PlaylistsComponent implements OnInit {
         (error: any) => console.log(error)
       );
 
-    this.apiSrvc
-      .getSongsFromPlaylist(this.id)
-      .subscribe((data) => (this.songs = data));
+      this.apiSrvc
+      .getPlaylist(this.id)
+      .subscribe((data) => (this.playlist = data));
   }
 
   submitForm() {
