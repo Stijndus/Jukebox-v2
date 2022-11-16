@@ -87,6 +87,7 @@ export class HomeComponent implements OnInit {
 
   submitQueueForm() {
     this.QueueSrvc.addSongToQueue(this.formQueue.get('song')?.value);
+    this.queueDuration = 0;
     this.queue = this.getSongsFromQueue();
   }
 
@@ -103,7 +104,7 @@ export class HomeComponent implements OnInit {
       (response: any) => console.log(response),
       (error: any) => console.log(error)
     );
-    this.refreshData();
+    this.clearQueue();
   }
 
   getSongsFromQueue(): Observable<any> {

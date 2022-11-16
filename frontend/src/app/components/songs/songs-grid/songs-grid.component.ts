@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ColDef, ColumnApi, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { ApiService } from 'src/app/shared/api/api.service';
 import { BtnCellRenderer } from 'src/app/shared/button-cell-renderer/button-cell-renderer.component';
+import { MinuteSecondsPipe } from 'src/app/shared/pipes/minute-seconds.pipe';
 
 @Component({
   selector: 'app-songs-grid',
@@ -23,7 +24,7 @@ export class SongsGridComponent {
   closeResult: string;
 
 
-  constructor( private router: Router) {
+  constructor(private router: Router, private durationFormatter: MinuteSecondsPipe) {
     this.columnDefs = [
       {
         field: 'id',
@@ -40,7 +41,7 @@ export class SongsGridComponent {
       { field: 'title' },
       { field: 'artist' },
       { field: 'genre.name', headerName: 'Genre' },
-      { field: 'duration'}
+      { field: 'duration',valueFormatter: (data)=> this.durationFormatter.transform(data.value)}
 
     ];
 

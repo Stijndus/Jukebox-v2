@@ -97,8 +97,7 @@ class PlaylistsApiController extends Controller
         $songs = $playlist->songs;
         foreach ($songs as $song) {
             $song['genre'] = $song->genre;
-            $secs = strtotime($song['duration'])-strtotime("00:00:00");
-            $playlist['duration'] = date("H:i:s",strtotime($playlist['duration'])+$secs);
+            $playlist['duration'] += $song['duration'];
         }
         $playlist['songs'] = $songs;
         return json_encode($playlist);

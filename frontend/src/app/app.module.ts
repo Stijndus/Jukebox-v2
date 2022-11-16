@@ -20,6 +20,8 @@ import { GenresComponent } from './components/genres/genres.component';
 import { BtnCellRenderer } from './shared/button-cell-renderer/button-cell-renderer.component';
 import { SongsViewComponent } from './components/songs/songs-view/songs-view.component';
 import { GenreComponent } from './components/genre/genre.component';
+import { MinuteSecondsPipe } from './shared/pipes/minute-seconds.pipe';
+import { HourMinutesPipe } from './shared/pipes/hour-minutes.pipe';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { GenreComponent } from './components/genre/genre.component';
     GenresComponent,
     BtnCellRenderer,
     SongsViewComponent,
-    GenreComponent
+    GenreComponent,
+    MinuteSecondsPipe,
+    HourMinutesPipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ import { GenreComponent } from './components/genre/genre.component';
       useClass: AuthInterceptor,
       multi: true,
     },
-    GridApi
+    GridApi,
+    MinuteSecondsPipe
   ],
   bootstrap: [AppComponent],
 })
