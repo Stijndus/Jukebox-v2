@@ -29,6 +29,7 @@ class SongsApiController extends Controller
         $songs = [];
         foreach($queue as $song){
             $song = Song::find($song);
+            $song['genre'] = $song->genre;
             array_push($songs, $song);
         }
 

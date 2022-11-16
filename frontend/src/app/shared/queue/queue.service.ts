@@ -36,4 +36,8 @@ export class QueueService {
     queue.splice(index, 1);
     this.sessionManager.sessionSetKey('queue', JSON.stringify(queue))
   }
+
+  clearQueue() {
+    this.sessionManager.sessionSetKey('queue', JSON.stringify([]))
+  }
 }

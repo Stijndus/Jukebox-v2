@@ -110,13 +110,20 @@ export class HomeComponent implements OnInit {
     return this.QueueSrvc.getSongsFromQueue().pipe(
       skipWhile((v) => !v),
       map((data) => {
+        if(!data.length){
+          this.queueDuration = 0;
+        }
         data.forEach((element: { duration: number }) => {
           this.queueDuration += element.duration;
         });
-
         return data;
       })
     );
+  }
+
+  clearQueue() {
+    this.QueueSrvc.clearQueue();
+    this.refreshData();
   }
 
   ngOnInit(): void {}
