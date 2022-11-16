@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs'
 import { ApiService } from '../api/api.service'
 import { SessionManagerService } from '../session/session-manager.service'
 
@@ -20,7 +21,7 @@ export class QueueService {
     }
   }
 
-  getSongsFromQueue() {
+  getSongsFromQueue(): Observable<any> {
     let queue: any = this.sessionManager.sessionFromKey('queue')
     return this.ApiSrvc.getQueueSongs({ queue: JSON.parse(queue) })
   }
