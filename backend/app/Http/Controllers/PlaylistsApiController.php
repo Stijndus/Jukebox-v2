@@ -36,12 +36,9 @@ class PlaylistsApiController extends Controller
                 $result = true;
             }
         }
-        if ($result) {
-            abort(404, 'already exists');
-        } else {
-            $song = Song::find(request('song_id'));
-            return $playlist->songs()->attach($song);
-        }
+
+        $song = Song::find(request('song_id'));
+        return $playlist->songs()->attach($song);
     }
 
     public function queue()

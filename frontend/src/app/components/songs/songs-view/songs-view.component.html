@@ -9,7 +9,7 @@
     Genre: {{ song?.genre.name }}
   </h4>
   <h4 class="h4 mb-3 font-weight-normal text-center text-muted">
-    Duration: {{ song?.duration }}
+    Duration: {{ song?.duration | minuteSeconds}}
   </h4>
   <div class="col-md-12 text-center">
     <button
