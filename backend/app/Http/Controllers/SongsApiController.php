@@ -6,6 +6,7 @@ use App\Models\Playlist;
 use App\Models\Song;
 use Illuminate\Http\Request;
 
+// This controller handles all the api functionality of the songs table (CRUD) and adding it to a playlist
 class SongsApiController extends Controller
 {
     public function index()

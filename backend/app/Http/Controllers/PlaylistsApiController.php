@@ -6,6 +6,7 @@ use App\Models\Playlist;
 use App\Models\Song;
 use Illuminate\Http\Request;
 
+// This controller handles all the api functionality of the playlist table (CRUD) and the functionality of adding a queue as a playlist
 class PlaylistsApiController extends Controller
 {
     public function index($id)

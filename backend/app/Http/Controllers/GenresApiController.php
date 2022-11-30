@@ -5,6 +5,7 @@ use App\Models\Genre;
 
 use Illuminate\Http\Request;
 
+// This controller handles all the api functionality of the genre's table (CRUD)
 class GenresApiController extends Controller
 {
     public function index()
@@ -14,7 +15,7 @@ class GenresApiController extends Controller
 
     public function store()
     {
-        
+
         return Genre::create([
             'name' => request('name'),
         ]);
